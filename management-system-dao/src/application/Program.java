@@ -1,6 +1,9 @@
 package application;
 
+import model.dao.DaoFactory;
+import model.dao.SellerDao;
 import model.entities.Department;
+import model.entities.Seller;
 
 import java.util.Locale;
 import java.util.Scanner;
@@ -8,13 +11,12 @@ import java.util.Scanner;
 public class Program {
 
     public static void main(String[] args) {
-
         Locale.setDefault(Locale.US);
-        Scanner sc = new Scanner(System.in);
+        SellerDao sellerDao = DaoFactory.createSellerDao();
 
-        Department dp = new Department("Joao", 1213);
-        System.out.println(dp);
+        Seller seller = sellerDao.findById(3);
 
-        sc.close();
+        System.out.println(seller);
+
     }
 }
