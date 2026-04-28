@@ -5,7 +5,7 @@
 ![CRUD](https://img.shields.io/badge/CRUD-completo-4CAF50?style=flat)
 ![Status](https://img.shields.io/badge/Status-Concluído-4CAF50?style=flat)
 
-Projeto desenvolvido durante o módulo de acesso a banco de dados do curso [Java COMPLETO 2026](https://github.com/Deduv/curso_udemy-java_completo), instrutor Nelio Alves (DevSuperior).
+Projeto desenvolvido durante o módulo de acesso a banco de dados do curso [Java Completo — Udemy](https://github.com/Deduv/curso_udemy-java_completo), instrutor Nelio Alves (DevSuperior).
 
 ---
 
