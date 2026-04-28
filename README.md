@@ -1,7 +1,8 @@
-# demo-dao-jdbc
+# demo-dao-jdbc — CRUD com padrão DAO
 
 ![Java](https://img.shields.io/badge/Java-25+-ED8B00?style=flat&logo=openjdk&logoColor=white)
 ![JDBC](https://img.shields.io/badge/JDBC-MySQL-4479A1?style=flat&logo=mysql&logoColor=white)
+![CRUD](https://img.shields.io/badge/CRUD-completo-4CAF50?style=flat)
 ![Status](https://img.shields.io/badge/Status-Concluído-4CAF50?style=flat)
 
 Projeto desenvolvido durante o módulo de acesso a banco de dados do curso [Java COMPLETO 2026](https://github.com/Deduv/curso_udemy-java_completo), instrutor Nelio Alves (DevSuperior).
@@ -10,7 +11,7 @@ Projeto desenvolvido durante o módulo de acesso a banco de dados do curso [Java
 
 ## Sobre o projeto
 
-Implementação do padrão **Data Access Object (DAO)** utilizando JDBC puro para persistência em banco de dados relacional MySQL. O projeto demonstra como isolar a camada de acesso a dados da lógica de negócio através de interfaces e do padrão Factory, com tratamento de exceções customizadas e reutilização de objetos via `HashMap`.
+Implementação de um CRUD completo utilizando o padrão **Data Access Object (DAO)** com JDBC puro e MySQL. O projeto isola a camada de acesso a dados da lógica de negócio através de interfaces e do padrão Factory, com tratamento de exceções customizadas e reutilização de objetos via `HashMap`.
 
 ---
 
@@ -20,24 +21,24 @@ Implementação do padrão **Data Access Object (DAO)** utilizando JDBC puro par
 management-system-dao/
 ├── src/
 │   ├── application/
-│   │   ├── Program.java              # Testes das operações de Seller
-│   │   └── Program2.java             # Testes das operações de Department
+│   │   ├── Program.java               # Testes das operações de Seller
+│   │   └── Program2.java              # Testes das operações de Department
 │   ├── db/
-│   │   ├── DB.java                   # Gerenciamento de conexão via db.properties
-│   │   ├── DbException.java          # Exceção customizada para erros de banco
-│   │   └── DbIntegrityException.java # Exceção para violações de integridade
+│   │   ├── DB.java                    # Gerenciamento de conexão via db.properties
+│   │   ├── DbException.java           # Exceção customizada para erros de banco
+│   │   └── DbIntegrityException.java  # Exceção para violações de integridade
 │   └── model/
 │       ├── dao/
-│       │   ├── DaoFactory.java       # Factory para instanciar os DAOs
-│       │   ├── SellerDao.java        # Interface com contrato do SellerDao
-│       │   └── DepartmentDao.java    # Interface com contrato do DepartmentDao
+│       │   ├── DaoFactory.java        # Factory para instanciar os DAOs
+│       │   ├── SellerDao.java         # Interface com contrato do SellerDao
+│       │   └── DepartmentDao.java     # Interface com contrato do DepartmentDao
 │       ├── dao/impl/
-│       │   ├── SellerDaoJDBC.java    # Implementação JDBC do SellerDao
-│       │   └── DepartmentDaoJDBC.java# Implementação JDBC do DepartmentDao
+│       │   ├── SellerDaoJDBC.java     # Implementação JDBC do SellerDao
+│       │   └── DepartmentDaoJDBC.java # Implementação JDBC do DepartmentDao
 │       └── entities/
-│           ├── Seller.java           # Entidade com id, name, email, birthDate, baseSalary, department
-│           └── Department.java       # Entidade com id e name
-└── db.properties                     # Configuração da conexão com o banco
+│           ├── Seller.java            # Entidade com id, name, email, birthDate, baseSalary, department
+│           └── Department.java        # Entidade com id e name
+└── db.properties                      # Configuração da conexão com o banco
 ```
 
 ---
@@ -77,30 +78,6 @@ management-system-dao/
 | `insert(Department obj)` | Insere department e atribui o id gerado ao objeto |
 | `update(Department obj)` | Atualiza o nome do department |
 | `deleteById(Integer id)` | Remove department por id |
-
----
-
-## Como executar
-
-1. Clone o repositório:
-```bash
-git clone https://github.com/Deduv/demo-dao-jdbc.git
-```
-
-2. Configure o arquivo `db.properties` na raiz do projeto com suas credenciais:
-```properties
-user=seu_usuario
-password=sua_senha
-dburl=jdbc:mysql://localhost:3306/coursejdbc
-useSSL=false
-```
-
-3. Crie o banco de dados executando o script `database.sql` no MySQL Workbench ou via terminal:
-```bash
-mysql -u root -p < database.sql
-```
-
-4. Execute `Program.java` para testar as operações de `Seller` ou `Program2.java` para `Department` diretamente pela IDE.
 
 ---
 
